@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular Broadcast Demo</title>
+    <script type="text/javascript" src="Scripts/angular.min.js"></script>
+    <script type="text/javascript" src="Scripts/app.js"></script>
+</head>
+<body>
+    <div ng-app="app">
+        <h1>Communicating Between Controllers</h1>
+        <hr>
+
+        <h2>Navbar Controller</h2>
+        <div ng-controller="NavbarController as vm">
+            <strong>{{ vm.navOpen.message }}<br /></strong>
+            <strong>Navbar State: </strong> {{vm.navOpen.status}}<br />
+
+
+            <button ng-click="vm.openNav('foo')" ng-if="!vm.navOpen.status">Open the Nav Bar</button>
+            <button ng-click="vm.closeNav('foo')" ng-if="vm.navOpen.status">Close the Nav Bar</button>
+        </div>
+        <hr>
+
+        <h2>Home Controller</h2>
+        <div ng-controller="HomeController as vm">
+            <strong>{{ vm.navOpen.message }}<br /></strong>
+            <strong>Navbar State: </strong> {{ vm.navOpen.status }}<br />
+            <button ng-click="vm.toggleNavbar()">Toggle</button>
+            <button ng-click="vm.openNavbar()">Open</button>
+            <button ng-click="vm.closeNavbar()">Close</button>
+        </div>
+
+    </div>
+</body>
+</html>
